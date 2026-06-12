@@ -9,3 +9,5 @@ streamlit
 plotly
 
 apache-airflow
+
+python-dotenv
