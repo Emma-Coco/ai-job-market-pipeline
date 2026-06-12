@@ -1,0 +1,11 @@
+pandas
+requests
+sqlalchemy
+psycopg2-binary
+
+kafka-python
+
+streamlit
+plotly
+
+apache-airflow
