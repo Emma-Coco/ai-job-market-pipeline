@@ -1,0 +1,625 @@
+{
+    "mean": 58413.84,
+    "results": [
+        {
+            "location": {
+                "area": [
+                    "France",
+                    "Ile-de-France",
+                    "Hauts-de-Seine"
+                ],
+                "display_name": "Hauts-de-Seine, Ile-de-France",
+                "__CLASS__": "Adzuna::API::Response::Location"
+            },
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiMWszcF9aQm04UkdmQjcyel9EclllUSIsImkiOiI1NzM4MzU3Mzc0In0.2m3qZ0Rdp8xwTH2iH7SB5jkG-nSrD1Wboy7NELxrm5s",
+            "description": "Lead Data Scientist Secteur : Distribution Multimarques CDI – Client Final Kaino, cabinet de recrutement spécialisé en Data, recherche un Lead Data Scientist en CDI pour un groupe français leader, spécialiste du retail , dans le cadre de la structuration et de la montée en puissance de son pôle Data Science. Fort d’une organisation très avancée dans la digitalisation de ses métiers et de son SI, ce groupe mise aujourd’hui sur l’intelligence artificielle pour optimiser ses performances sur l’ens…",
+            "longitude": 2.245857,
+            "id": "5738357374",
+            "latitude": 48.82583,
+            "created": "2026-05-23T05:38:19Z",
+            "salary_is_predicted": "0",
+            "redirect_url": "https://www.adzuna.fr/land/ad/5738357374?se=1k3p_ZBm8RGfB72z_DrYeQ&utm_medium=api&utm_source=44c7bd76&v=5F65C4B838C36E7A942FEB76E73107651AE5ED6F",
+            "contract_type": "permanent",
+            "title": "Lead Data Scientist H/F (CDI)",
+            "company": {
+                "__CLASS__": "Adzuna::API::Response::Company",
+                "display_name": "Kaino"
+            },
+            "category": {
+                "tag": "unknown",
+                "label": "Unknown",
+                "__CLASS__": "Adzuna::API::Response::Category"
+            },
+            "__CLASS__": "Adzuna::API::Response::Job"
+        },
+        {
+            "description": "Senior Data Scientist Secteur : Distribution Multimarques CDI – Client Final Kaino, cabinet de recrutement spécialisé en Data, recherche un Lead Data Scientist en CDI pour un groupe français leader, spécialiste du retail , dans le cadre de la structuration et de la montée en puissance de son pôle Data Science. Fort d’une organisation très avancée dans la digitalisation de ses métiers et de son SI, ce groupe mise aujourd’hui sur l’intelligence artificielle pour optimiser ses performances sur l’e…",
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTcwMjAxMDQ3MiIsInMiOiIxazNwX1pCbThSR2ZCNzJ6X0RyWWVRIn0.YH7l74Rz1PZaQgUBH0ZOc3Jl9q4kl5ccwj6XllQbXF0",
+            "location": {
+                "display_name": "Hauts-de-Seine, Ile-de-France",
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "area": [
+                    "France",
+                    "Ile-de-France",
+                    "Hauts-de-Seine"
+                ]
+            },
+            "id": "5702010472",
+            "latitude": 48.82583,
+            "longitude": 2.245857,
+            "redirect_url": "https://www.adzuna.fr/land/ad/5702010472?se=1k3p_ZBm8RGfB72z_DrYeQ&utm_medium=api&utm_source=44c7bd76&v=F8046A646D3552CB83BBD299486A8D1DA87D3CDE",
+            "contract_type": "permanent",
+            "salary_is_predicted": "0",
+            "created": "2026-04-17T03:17:58Z",
+            "company": {
+                "__CLASS__": "Adzuna::API::Response::Company",
+                "display_name": "Kaino"
+            },
+            "title": "Senior Data Scientist H/F (CDI)",
+            "category": {
+                "label": "Unknown",
+                "tag": "unknown",
+                "__CLASS__": "Adzuna::API::Response::Category"
+            },
+            "__CLASS__": "Adzuna::API::Response::Job"
+        },
+        {
+            "description": "Covéa est un groupe mutualiste engagé, constitué des marques MAAF, MMA, GMF et du réassureur PartnerRe. Acteur économique majeur des territoires, grâce à ses 24 000 collaborateurs, Covéa protège plus de 11 millions de clients et sociétaires en France. Rejoignez le leader de l’assurance, contribuez à sa réussite : votre talent, notre engagement ! Rejoignez la Direction des Dirigeants, des Cadres Supérieurs et de l’Accompagnement de COVEA, en intégrant une équipe de 4 collaborateurs au sein de la…",
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTc1ODU0MzMwNCIsInMiOiIxazNwX1pCbThSR2ZCNzJ6X0RyWWVRIn0.poyhAaSJFRnjoqd9nbM9HdO_00wo3hA_hmqYmzViT7g",
+            "location": {
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "display_name": "1er Arrondissement, Paris",
+                "area": [
+                    "France",
+                    "Ile-de-France",
+                    "Paris",
+                    "1er Arrondissement"
+                ]
+            },
+            "latitude": 48.86023,
+            "id": "5758543304",
+            "longitude": 2.34107,
+            "redirect_url": "https://www.adzuna.fr/land/ad/5758543304?se=1k3p_ZBm8RGfB72z_DrYeQ&utm_medium=api&utm_source=44c7bd76&v=7887A3C6DDA3F88C43E7FA24634A5503F6466B0F",
+            "contract_type": "permanent",
+            "salary_is_predicted": "0",
+            "created": "2026-06-10T15:47:25Z",
+            "title": "Data scientist F/H (CDI)",
+            "company": {
+                "__CLASS__": "Adzuna::API::Response::Company",
+                "display_name": "COVEA"
+            },
+            "category": {
+                "tag": "unknown",
+                "label": "Unknown",
+                "__CLASS__": "Adzuna::API::Response::Category"
+            },
+            "__CLASS__": "Adzuna::API::Response::Job"
+        },
+        {
+            "id": "5760140196",
+            "latitude": 48.610231,
+            "longitude": 2.623575,
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTc2MDE0MDE5NiIsInMiOiIxazNwX1pCbThSR2ZCNzJ6X0RyWWVRIn0.ysMinDGEA88UVR2wVC_Th9njMLm7K1rXn7CqwqdsxR0",
+            "location": {
+                "area": [
+                    "France",
+                    "Ile-de-France",
+                    "Seine-et-Marne",
+                    "Melun",
+                    "Combs-la-Ville",
+                    "Réau"
+                ],
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "display_name": "Réau, Combs-la-Ville"
+            },
+            "description": "LHH recrute pour l'un de ses clients un·e Data Scientist (H/F) en intérim de 8 mois, temps plein, basé·e à Réau (77550), à pourvoir dès que possible, dans un environnement industriel de haute technologie (construction aéronautique et spatiale). Vous rejoignez un département dédié à la conception et l'optimisation de compresseurs, où la donnée guide les décisions techniques. Sous la supervision d'un·e leader technique, vous accompagnez les équipes métiers dans le développement et le déploiement …",
+            "category": {
+                "tag": "unknown",
+                "label": "Unknown",
+                "__CLASS__": "Adzuna::API::Response::Category"
+            },
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "title": "Data Scientiste (h/f)",
+            "company": {
+                "display_name": "LHH Recruitment Solutions",
+                "__CLASS__": "Adzuna::API::Response::Company"
+            },
+            "contract_type": "contract",
+            "redirect_url": "https://www.adzuna.fr/details/5760140196?utm_medium=api&utm_source=44c7bd76",
+            "salary_is_predicted": "0",
+            "created": "2026-06-11T20:26:38Z"
+        },
+        {
+            "redirect_url": "https://www.adzuna.fr/details/5760137331?utm_medium=api&utm_source=44c7bd76",
+            "contract_type": "permanent",
+            "created": "2026-06-11T19:57:14Z",
+            "salary_is_predicted": "0",
+            "company": {
+                "display_name": "LHH Recruitment Solutions",
+                "__CLASS__": "Adzuna::API::Response::Company"
+            },
+            "title": "Data Scientist (h/f)",
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "category": {
+                "label": "Unknown",
+                "tag": "unknown",
+                "__CLASS__": "Adzuna::API::Response::Category"
+            },
+            "location": {
+                "area": [
+                    "France",
+                    "Ile-de-France",
+                    "Seine-Saint-Denis",
+                    "Saint-Denis"
+                ],
+                "display_name": "Saint-Denis, Seine-Saint-Denis",
+                "__CLASS__": "Adzuna::API::Response::Location"
+            },
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTc2MDEzNzMzMSIsInMiOiIxazNwX1pCbThSR2ZCNzJ6X0RyWWVRIn0.aI1KOY7KnKFf5otSCpi8g-9Y-oeKk5URdkWBCVW7BU0",
+            "description": "Rattaché(e) au Directeur du Développement, vous avez pour mission de valoriser les données issues des différents systèmes de l'entreprise afin d'en faire un levier de performance et d'aide à la décision. À ce titre, vos responsabilités s'articulent autour des axes suivants : * Analyse et exploitation des données : Collecter, structurer et analyser les données issues des différents systèmes internes. Garantir leur fiabilité et leur cohérence, et produire des indicateurs ainsi que des tableaux de…",
+            "latitude": 48.93607,
+            "id": "5760137331",
+            "longitude": 2.36488
+        },
+        {
+            "salary_is_predicted": "0",
+            "created": "2026-04-17T03:17:58Z",
+            "contract_type": "permanent",
+            "redirect_url": "https://www.adzuna.fr/land/ad/5702010478?se=1k3p_ZBm8RGfB72z_DrYeQ&utm_medium=api&utm_source=44c7bd76&v=9D9B2700FBD6A6CBB50E5CD028437A385FA7EB87",
+            "category": {
+                "tag": "unknown",
+                "label": "Unknown",
+                "__CLASS__": "Adzuna::API::Response::Category"
+            },
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "title": "Lead Data Scientist GenAI H/F (CDI)",
+            "company": {
+                "display_name": "Kaino",
+                "__CLASS__": "Adzuna::API::Response::Company"
+            },
+            "description": "Client Final / Santé Grand Groupe international CDI – Paris Kaino, cabinet de recrutement spécialisé, recrute un Lead Data Scientist GenAI en CDI pour un acteur mondial reconnu pour son excellence technologique et son engagement en faveur de l’innovation. Vous rejoignez une équipe IT & Digital de plus de 200 personnes , au cœur d’un programme de transformation ambitieuse, et jouez un rôle structurant dans le développement des capacités GenAI du groupe. En tant que Lead Data Scientist GenAI , vo…",
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiMWszcF9aQm04UkdmQjcyel9EclllUSIsImkiOiI1NzAyMDEwNDc4In0.yUalwkMDinQWjdoh2xm7VIyymsAnyAaI-DJwKDy-kdg",
+            "location": {
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "display_name": "Suresnes, Nanterre",
+                "area": [
+                    "France",
+                    "Ile-de-France",
+                    "Hauts-de-Seine",
+                    "Nanterre",
+                    "Suresnes"
+                ]
+            },
+            "longitude": 2.2221,
+            "id": "5702010478",
+            "latitude": 48.87014
+        },
+        {
+            "redirect_url": "https://www.adzuna.fr/land/ad/5702010492?se=1k3p_ZBm8RGfB72z_DrYeQ&utm_medium=api&utm_source=44c7bd76&v=4E9DFDA256F19FF68C6225DA662D197F5EDAE01B",
+            "contract_type": "permanent",
+            "created": "2026-04-17T03:17:58Z",
+            "salary_is_predicted": "0",
+            "company": {
+                "__CLASS__": "Adzuna::API::Response::Company",
+                "display_name": "Kaino"
+            },
+            "title": "Lead Data Scientist RetD H/F (CDI)",
+            "category": {
+                "__CLASS__": "Adzuna::API::Response::Category",
+                "tag": "unknown",
+                "label": "Unknown"
+            },
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiMWszcF9aQm04UkdmQjcyel9EclllUSIsImkiOiI1NzAyMDEwNDkyIn0.PuSuPsdPMpV3vLHfcHMGDOpV8bAgvEHGDtMBThwvxL4",
+            "description": "Client Final / Santé Grand Groupe international CDI – Paris Kaino, cabinet de recrutement spécialisé recrute un Lead Data Scientist R&D en CDI pour un acteur mondial dans le domaine de la Santé à Paris. Vous rejoignez une équipe IT & Digital de plus de 200 personnes et participez ainsi au programme de transformation digitale du groupe. Client Final / Santé Grand Groupe international CDI – Paris Kaino, cabinet de recrutement spécialisé recrute un Lead Data Scientist R&D en CDI pour un acteur mon…",
+            "location": {
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "display_name": "Suresnes, Nanterre",
+                "area": [
+                    "France",
+                    "Ile-de-France",
+                    "Hauts-de-Seine",
+                    "Nanterre",
+                    "Suresnes"
+                ]
+            },
+            "latitude": 48.87014,
+            "id": "5702010492",
+            "longitude": 2.2221
+        },
+        {
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "category": {
+                "__CLASS__": "Adzuna::API::Response::Category",
+                "label": "Unknown",
+                "tag": "unknown"
+            },
+            "title": "Data Scientist",
+            "company": {
+                "__CLASS__": "Adzuna::API::Response::Company",
+                "display_name": "CapsLock"
+            },
+            "redirect_url": "https://www.adzuna.fr/details/5753324071?utm_medium=api&utm_source=44c7bd76",
+            "salary_is_predicted": "0",
+            "created": "2026-06-05T18:14:47Z",
+            "id": "5753324071",
+            "contract_time": "full_time",
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTc1MzMyNDA3MSIsInMiOiIxazNwX1pCbThSR2ZCNzJ6X0RyWWVRIn0.XVlL7VXHn6MDMNTmq0IRh3anJr0Qhet5YWxyAXaFhHg",
+            "location": {
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "display_name": "France",
+                "area": [
+                    "France"
+                ]
+            },
+            "description": "We are seeking a driven and creative Data Scientist with a minimum of 3 years of experience in a data science or machine learning role, who will be instrumental in building predictive models, testing hypotheses, and providing statistically sound insights that enhance our lead generation capabilities. The Data Scientist will be part of our analytics team, working closely with IT, marketing, media buying and CRO teams to transform raw data into actionable insights, whether that means building rea…"
+        },
+        {
+            "salary_is_predicted": "0",
+            "created": "2026-04-11T06:23:47Z",
+            "contract_type": "permanent",
+            "redirect_url": "https://www.adzuna.fr/details/5696361559?utm_medium=api&utm_source=44c7bd76",
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "category": {
+                "__CLASS__": "Adzuna::API::Response::Category",
+                "label": "Emplois Administration",
+                "tag": "admin-jobs"
+            },
+            "company": {
+                "__CLASS__": "Adzuna::API::Response::Company",
+                "display_name": "CDISCOUNT"
+            },
+            "title": "Data scientist",
+            "location": {
+                "area": [
+                    "France",
+                    "Nouvelle-Aquitaine",
+                    "Gironde"
+                ],
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "display_name": "Gironde, Nouvelle-Aquitaine"
+            },
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTY5NjM2MTU1OSIsInMiOiIxazNwX1pCbThSR2ZCNzJ6X0RyWWVRIn0.90VRBWmHVp4xqRlDurn9ytgCIAxwH3-Tn4PmbzVEdF8",
+            "description": "Rejoins l’équipe data de la direction produit paiement chez Cdiscount et participe à la transformation de la gestion des risques sur l'une des plus grandes plateformes e-commerce de France ! Tu seras au sein de l’équipe responsable de la gestion des paiements, de la prise de commande, et du management des risques B2C (fraude, blanchiment d’argent, insolvabilité, recouvrement) sur Cdiscount.com. - En étroite collaboration avec des data analysts et data scientists, tu amélioreras les algorithmes …",
+            "longitude": -0.665018,
+            "latitude": 44.910658,
+            "id": "5696361559"
+        },
+        {
+            "category": {
+                "tag": "unknown",
+                "label": "Unknown",
+                "__CLASS__": "Adzuna::API::Response::Category"
+            },
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "title": "Data Scientist",
+            "company": {
+                "__CLASS__": "Adzuna::API::Response::Company",
+                "display_name": "Ministere Interieur"
+            },
+            "created": "2026-01-22T19:59:30Z",
+            "salary_is_predicted": "0",
+            "contract_type": "contract",
+            "redirect_url": "https://www.adzuna.fr/details/5595809132?utm_medium=api&utm_source=44c7bd76",
+            "id": "5595809132",
+            "location": {
+                "area": [
+                    "France"
+                ],
+                "display_name": "France",
+                "__CLASS__": "Adzuna::API::Response::Location"
+            },
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiMWszcF9aQm04UkdmQjcyel9EclllUSIsImkiOiI1NTk1ODA5MTMyIn0.kOGIK95REe3yYw6qrzWZMPkbzUSaTe-C7j337yTAKLw",
+            "description": "Informations générales Référence BS092ACA-113980 Date limite de candidature 31/12/2026 Versant Fonction publique d'Etat Catégorie Catégorie A (cadre) Nature de l'emploi Emploi ouvert aux fonctionnaires et/ou contractuels Domaine et métier Numérique - Data Scientist Type de poste Technique et spécialisé Statut du poste Vacant Intitulé du poste Data Scientist Description du poste Groupe RIFSEEP : 3 Vos activités principales : Sous l’autorité du directeur de programme ou du chef de projet en charg…"
+        },
+        {
+            "title": "Data Scientist",
+            "company": {
+                "display_name": "Ministère des armées. Liberté, égalité, fraternité.",
+                "__CLASS__": "Adzuna::API::Response::Company"
+            },
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "category": {
+                "__CLASS__": "Adzuna::API::Response::Category",
+                "label": "Unknown",
+                "tag": "unknown"
+            },
+            "salary_is_predicted": "0",
+            "created": "2026-05-22T23:01:17Z",
+            "redirect_url": "https://www.adzuna.fr/details/5738060407?utm_medium=api&utm_source=44c7bd76",
+            "contract_type": "contract",
+            "longitude": 2.344631,
+            "latitude": 48.863839,
+            "id": "5738060407",
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTczODA2MDQwNyIsInMiOiIxazNwX1pCbThSR2ZCNzJ6X0RyWWVRIn0.16b91i-qWzM_Qge1T2bNJAw-j4FNwS2QdTqAOmS2t_A",
+            "location": {
+                "display_name": "Paris, Ile-de-France",
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "area": [
+                    "France",
+                    "Ile-de-France",
+                    "Paris"
+                ]
+            },
+            "description": "Vos missions en quelques mots Le Data Scientist intègre l’équipe en tant que référent technique/ scientifique, il est chargé d’accompagner les juniors dans leur montée en compétences tout en participant à la réalisation des projets data 360 et IA. Il est également en charge de l’utilisation des technologies Big Data et IA, dans le but d’aider à la prise de décision et faire de la veille technologique sur les architectures Big Data et IA. Vous aurez la responsabilité de : • Analyser des données …"
+        },
+        {
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiMWszcF9aQm04UkdmQjcyel9EclllUSIsImkiOiI1NzM4MjIxMjU4In0.CIBuGAzZhIhBUmbEOZaSM4N5yWpBl7ENrthtxoNBNo0",
+            "location": {
+                "display_name": "Rhône, Auvergne-Rhône-Alpes",
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "area": [
+                    "France",
+                    "Auvergne-Rhône-Alpes",
+                    "Rhône"
+                ]
+            },
+            "salary_max": 70000,
+            "id": "5738221258",
+            "salary_min": 60000,
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "company": {
+                "display_name": "ENOVA Consulting",
+                "__CLASS__": "Adzuna::API::Response::Company"
+            },
+            "description": "ENOVA poursuit son développement et renforce ses équipes en intégrant un(e) Data Scientist Senior en CDI. Vous rejoindrez notre communauté de consultants et interviendrez en mission longue durée au sein d'un grand compte, dans un environnement stimulant et innovant. Vous intégrerez les équipes Data & IA d'un grand acteur international du secteur pharmaceutique, au sein d'un projet stratégique visant à transformer la gestion des équipements industriels grâce à l'intelligence artificielle. L'obje…",
+            "contract_time": "full_time",
+            "longitude": 4.902705,
+            "latitude": 45.85511,
+            "created": "2026-05-23T03:01:29Z",
+            "salary_is_predicted": "0",
+            "redirect_url": "https://www.adzuna.fr/details/5738221258?utm_medium=api&utm_source=44c7bd76",
+            "category": {
+                "__CLASS__": "Adzuna::API::Response::Category",
+                "label": "Emplois Informatique",
+                "tag": "it-jobs"
+            },
+            "title": "Data scientist"
+        },
+        {
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "category": {
+                "__CLASS__": "Adzuna::API::Response::Category",
+                "tag": "unknown",
+                "label": "Unknown"
+            },
+            "title": "Data Scientist",
+            "company": {
+                "display_name": "Canopee",
+                "__CLASS__": "Adzuna::API::Response::Company"
+            },
+            "redirect_url": "https://www.adzuna.fr/details/5740324167?utm_medium=api&utm_source=44c7bd76",
+            "salary_is_predicted": "0",
+            "created": "2026-05-25T11:34:12Z",
+            "latitude": 48.863839,
+            "id": "5740324167",
+            "longitude": 2.344631,
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTc0MDMyNDE2NyIsInMiOiIxazNwX1pCbThSR2ZCNzJ6X0RyWWVRIn0.3kcuVb6znKAPSW6okO4F_6MsF63GLBbCvecD7MEmvwo",
+            "location": {
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "display_name": "Paris, Ile-de-France",
+                "area": [
+                    "France",
+                    "Ile-de-France",
+                    "Paris"
+                ]
+            },
+            "description": "Quelques mots sur l’Empowering Ecosystem Nous sommes un cabinet de conseil multi-spécialiste. C’est dans le secteur financier que nous avons développé depuis 2009, notre agilité et nos compétences, autour de nos 3 expertises phares : Conseil Métier Finance, Data & Transformation digitale. Ici, l’empowerment est au cœur du quotidien de chacun et nous engageons notre collectif, sur une trajectoire de performance responsable, humaine et économique. Pour intégrer notre client grand compte, nous rec…"
+        },
+        {
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiMWszcF9aQm04UkdmQjcyel9EclllUSIsImkiOiI1NjA2NzI4Nzc5In0.-RZvBxWFrENNakNa_Zdn56fScPsXHCbajPhztFfeiM0",
+            "location": {
+                "area": [
+                    "France",
+                    "Ile-de-France",
+                    "Paris"
+                ],
+                "display_name": "Paris, Ile-de-France",
+                "__CLASS__": "Adzuna::API::Response::Location"
+            },
+            "description": "About Mistral At Mistral AI, we believe in the power of AI to simplify tasks, save time and enhance learning and creativity. Our technology is designed to integrate seamlessly into daily working life. We democratize AI through high-performance, optimized, open-source and cutting-edge models, products and solutions. Our comprehensive AI platform is designed to meet enterprise needs, whether on-premises or in cloud environments. Our offerings include le Chat, the AI assistant for life and work. W…",
+            "id": "5606728779",
+            "latitude": 48.863839,
+            "longitude": 2.344631,
+            "contract_time": "full_time",
+            "redirect_url": "https://www.adzuna.fr/details/5606728779?utm_medium=api&utm_source=44c7bd76",
+            "salary_is_predicted": "0",
+            "created": "2026-01-30T20:32:29Z",
+            "title": "Data Scientist",
+            "company": {
+                "display_name": "Mistral AI",
+                "__CLASS__": "Adzuna::API::Response::Company"
+            },
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "category": {
+                "__CLASS__": "Adzuna::API::Response::Category",
+                "label": "Emplois Informatique",
+                "tag": "it-jobs"
+            }
+        },
+        {
+            "salary_is_predicted": "0",
+            "created": "2026-03-12T21:15:28Z",
+            "redirect_url": "https://www.adzuna.fr/details/5662770874?utm_medium=api&utm_source=44c7bd76",
+            "contract_type": "contract",
+            "title": "Data scientist",
+            "company": {
+                "display_name": "Caisse des dépôts groupe",
+                "__CLASS__": "Adzuna::API::Response::Company"
+            },
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "category": {
+                "label": "Unknown",
+                "tag": "unknown",
+                "__CLASS__": "Adzuna::API::Response::Category"
+            },
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiMWszcF9aQm04UkdmQjcyel9EclllUSIsImkiOiI1NjYyNzcwODc0In0.NtaQf3QrYQp96EDYDX4kltLgSbPUBVhsTdubjXnOViY",
+            "description": "Vos missions en quelques mots Au sein de la Direction des prêts de la Banque des Territoires, vous rejoignez l’équipe DPHD80 Data Etudes et Pilotage en tant que Data Scientist. Votre mission principale consistera à concevoir et mettre en œuvre des outils de traitement automatique du langage (NLP) pour analyser, classifier et extraire automatiquement des informations à partir des documents textuels liés aux dossiers de prêt. Vous pourrez être amené(e), ponctuellement et lorsque cela sera nécessa…",
+            "location": {
+                "display_name": "Paris, Ile-de-France",
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "area": [
+                    "France",
+                    "Ile-de-France",
+                    "Paris"
+                ]
+            },
+            "longitude": 2.344631,
+            "id": "5662770874",
+            "latitude": 48.863839
+        },
+        {
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "category": {
+                "__CLASS__": "Adzuna::API::Response::Category",
+                "tag": "unknown",
+                "label": "Unknown"
+            },
+            "company": {
+                "display_name": "Veepee",
+                "__CLASS__": "Adzuna::API::Response::Company"
+            },
+            "title": "Data Scientist",
+            "redirect_url": "https://www.adzuna.fr/details/5481820243?utm_medium=api&utm_source=44c7bd76",
+            "created": "2025-11-05T11:47:48Z",
+            "salary_is_predicted": "0",
+            "id": "5481820243",
+            "latitude": 48.863839,
+            "contract_time": "full_time",
+            "longitude": 2.344631,
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTQ4MTgyMDI0MyIsInMiOiIxazNwX1pCbThSR2ZCNzJ6X0RyWWVRIn0.QfruCyVQmyLMvu36Ihu-XVbHMvokPDFoyH6qtkJVYTI",
+            "description": "Pioneer of online flash sales since 2001 and key player in European e-commerce, Veepee collaborates with over 7,000 brands to offer highly discounted products available for a limited time. Operating across various sectors, including fashion, home, wine, travel or beauty Veepee achieved a turnover of 3.3 billion euros incl. VAT in 2024 and employs 5,000 staff members across 10 countries.  JOB DESCRIPTION As a Data Scientist, you’ll join our Data Science team, distributed across Paris, Lyon, Barc…",
+            "location": {
+                "display_name": "Paris, Ile-de-France",
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "area": [
+                    "France",
+                    "Ile-de-France",
+                    "Paris"
+                ]
+            }
+        },
+        {
+            "longitude": -0.45758,
+            "latitude": 46.32386,
+            "id": "5759793727",
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTc1OTc5MzcyNyIsInMiOiIxazNwX1pCbThSR2ZCNzJ6X0RyWWVRIn0.MBKxji7G-Llm9aVe-n6C-ZXcYpGFmUhwlOaKU1qxZqc",
+            "description": "L’Anses recrute un Data scientist (H/F) Poste basé à Niort (79) - Contrat à durée déterminée de droit public jusqu’au 31/12/2028 - Date de prise de fonctions : Septembre 2026 Rémunération : Selon l’expérience et le niveau de formation par référence aux grilles indiciaires des agences sanitaires ou selon statut particulier si fonctionnaire. Conditions particulières : Déplacements en France (grand Ouest) et ponctuellement en Europe. Réunions régulières en visioconférence avec les partenaires étra…",
+            "location": {
+                "area": [
+                    "France",
+                    "Nouvelle-Aquitaine",
+                    "Deux-Sèvres",
+                    "Niort"
+                ],
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "display_name": "Niort, Deux-Sèvres"
+            },
+            "category": {
+                "__CLASS__": "Adzuna::API::Response::Category",
+                "tag": "unknown",
+                "label": "Unknown"
+            },
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "title": "Data scientist",
+            "company": {
+                "display_name": "Agence nationale de sécurité sanitaire - Anses",
+                "__CLASS__": "Adzuna::API::Response::Company"
+            },
+            "created": "2026-06-11T11:58:37Z",
+            "salary_is_predicted": "0",
+            "redirect_url": "https://www.adzuna.fr/details/5759793727?utm_medium=api&utm_source=44c7bd76"
+        },
+        {
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiMWszcF9aQm04UkdmQjcyel9EclllUSIsImkiOiI1NzQ3NDI0NzYyIn0.heCpw-TA-kv089q1BhHM5oQ3eGAVchCY0gU9AHZlrag",
+            "location": {
+                "area": [
+                    "France",
+                    "Auvergne-Rhône-Alpes",
+                    "Rhône",
+                    "Lyon"
+                ],
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "display_name": "Lyon, Rhône"
+            },
+            "description": "About ChemAI ChemAI is an AI-for-chemistry company building SmartChemistry® - a “chess engine for chemistry” that discovers novel, manufacturable synthetic routes to known medicines. Our edge is a proprietary reaction corpus of 30M reactions, dominated by industrially relevant process chemistry rather than the small-scale medicinal-chemistry data that most AI tools in this space are trained on. We work in two strategically linked directions: with non-profit foundation partners, we use SmartChem…",
+            "latitude": 45.72035,
+            "id": "5747424762",
+            "longitude": 5.08666,
+            "redirect_url": "https://www.adzuna.fr/details/5747424762?utm_medium=api&utm_source=44c7bd76",
+            "created": "2026-06-01T11:38:01Z",
+            "salary_is_predicted": "0",
+            "title": "Data Scientist",
+            "company": {
+                "display_name": "ChemAI",
+                "__CLASS__": "Adzuna::API::Response::Company"
+            },
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "category": {
+                "__CLASS__": "Adzuna::API::Response::Category",
+                "tag": "it-jobs",
+                "label": "Emplois Informatique"
+            }
+        },
+        {
+            "redirect_url": "https://www.adzuna.fr/details/5690853674?utm_medium=api&utm_source=44c7bd76",
+            "created": "2026-04-05T22:38:22Z",
+            "salary_is_predicted": "0",
+            "category": {
+                "tag": "unknown",
+                "label": "Unknown",
+                "__CLASS__": "Adzuna::API::Response::Category"
+            },
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "company": {
+                "display_name": "Maisons du Monde",
+                "__CLASS__": "Adzuna::API::Response::Company"
+            },
+            "title": "Data Scientist",
+            "location": {
+                "area": [
+                    "France"
+                ],
+                "display_name": "France",
+                "__CLASS__": "Adzuna::API::Response::Location"
+            },
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiMWszcF9aQm04UkdmQjcyel9EclllUSIsImkiOiI1NjkwODUzNjc0In0.SLpcABI-QUgxoSjzVefyIwUbGW-XmQS6Fw6roQdpJlU",
+            "description": "CDI Maisons du Monde par son ADN historique et sa raison d’être récente est une entreprise singulière et inspirante, composée de femmes et d’hommes engagés depuis toujours au développement d’une entreprise désirable et durable centrée clients. Chaleureuse, car l’humain est notre première richesse, notre façon d’être ensemble est primordiale. Nous nourrissons des relations simples, sympathiques, basées sur la solidarité, la proximité et l’inclusivité de tous. Inspirée, grâce à la créativité perm…",
+            "id": "5690853674",
+            "contract_time": "full_time"
+        },
+        {
+            "location": {
+                "__CLASS__": "Adzuna::API::Response::Location",
+                "display_name": "Paris, Ile-de-France",
+                "area": [
+                    "France",
+                    "Ile-de-France",
+                    "Paris"
+                ]
+            },
+            "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTc0NDk1NzY5MSIsInMiOiIxazNwX1pCbThSR2ZCNzJ6X0RyWWVRIn0.bXOXfeMBNxvzur8L0LB_xSG4CDqFFhndhLd6y2M53GQ",
+            "description": "Vos missions en quelques mots - organise la phase de recueil du besoin DATA pour les projets applicatifs de la plateforme et propose les évolutions d’architecture pour permettre leur stockage, transformation, mise en qualité et utilisation. Il collabore avec l’équipe d’architecture plateforme - organise la sécurisation des accès et la gestion applicative de ces derniers au sein de la plateforme (Usine logicielle du CICoS). Il gère les équipes de développement Data/IA pour la réalisation des log…",
+            "id": "5744957691",
+            "latitude": 48.863839,
+            "longitude": 2.344631,
+            "redirect_url": "https://www.adzuna.fr/details/5744957691?utm_medium=api&utm_source=44c7bd76",
+            "contract_type": "contract",
+            "salary_is_predicted": "0",
+            "created": "2026-05-29T23:07:31Z",
+            "company": {
+                "__CLASS__": "Adzuna::API::Response::Company",
+                "display_name": "Ministère des armées. Liberté, égalité, fraternité."
+            },
+            "title": "Data Scientist",
+            "__CLASS__": "Adzuna::API::Response::Job",
+            "category": {
+                "label": "Unknown",
+                "tag": "unknown",
+                "__CLASS__": "Adzuna::API::Response::Category"
+            }
+        }
+    ],
+    "count": 1503,
+    "__CLASS__": "Adzuna::API::Response::JobSearchResults"
+}

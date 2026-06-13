@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 import os
 import requests
+import json
 
 load_dotenv()
 
@@ -12,19 +13,16 @@ url = (
     f"?app_id={APP_ID}"
     f"&app_key={APP_KEY}"
     f"&what=Data Scientist"
-    f"&results_per_page=5"
+    f"&results_per_page=20"
 )
 
 response = requests.get(url)
 
-print("Status code:", response.status_code)
-
 data = response.json()
 
-print("Number of jobs:", len(data.get("results", [])))
+os.makedirs("data", exist_ok=True)
 
-for job in data.get("results", []):
-    print("-" * 50)
-    print("Title:", job.get("title"))
-    print("Company:", job.get("company", {}).get("display_name"))
-    print("Location:", job.get("location", {}).get("display_name"))
+with open("data/raw_jobs.json", "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
+
+print("Raw data saved to data/raw_jobs.json")
