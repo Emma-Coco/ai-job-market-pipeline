@@ -39,7 +39,7 @@ The batch pipeline is orchestrated by Apache Airflow and processes job offers pe
 
 ## Streaming Pipeline
 
-Producer → Kafka Topic → Consumer → PostgreSQL → Dashboard
+Adzuna API → Producer → Kafka Topic → Consumer → PostgreSQL → Dashboard
 
 The streaming pipeline demonstrates near real-time ingestion using Apache Kafka.
 
@@ -49,6 +49,12 @@ The streaming pipeline demonstrates near real-time ingestion using Apache Kafka.
 2. Consumer listens continuously for new messages
 3. Incoming records are stored in the `live_jobs` table
 4. Dashboard displays streaming metrics
+
+---
+
+## Final Architecture Schema
+
+![Architecture](docs/architecture.png)
 
 ---
 
