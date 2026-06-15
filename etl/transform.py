@@ -13,6 +13,7 @@ for job in data["results"]:
     {
         "job_id": job.get("id"),
         "title": job.get("title"),
+        "search_role": job.get("search_role"),
         "company": job.get("company", {}).get("display_name"),
         "location": job.get("location", {}).get("display_name"),
 

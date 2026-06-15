@@ -8,21 +8,53 @@ load_dotenv()
 APP_ID = os.getenv("ADZUNA_APP_ID")
 APP_KEY = os.getenv("ADZUNA_APP_KEY")
 
-url = (
-    f"https://api.adzuna.com/v1/api/jobs/fr/search/1"
-    f"?app_id={APP_ID}"
-    f"&app_key={APP_KEY}"
-    f"&what=Data Scientist"
-    f"&results_per_page=20"
-)
+SEARCH_ROLES = [
+    "Data Scientist",
+    "Data Analyst",
+    "Data Engineer",
+    "Machine Learning Engineer",
+    "AI Engineer"
+]
 
-response = requests.get(url)
+all_jobs = []
 
-data = response.json()
+for role in SEARCH_ROLES:
+
+    print(f"Fetching: {role}")
+
+    url = (
+        f"https://api.adzuna.com/v1/api/jobs/fr/search/1"
+        f"?app_id={APP_ID}"
+        f"&app_key={APP_KEY}"
+        f"&what={role}"
+        f"&results_per_page=20"
+    )
+
+    response = requests.get(url)
+
+    data = response.json()
+
+    for job in data.get("results", []):
+
+        job["search_role"] = role
+
+        all_jobs.append(job)
+
+print(f"Total jobs collected: {len(all_jobs)}")
 
 os.makedirs("data", exist_ok=True)
 
-with open("data/raw_jobs.json", "w", encoding="utf-8") as f:
-    json.dump(data, f, ensure_ascii=False, indent=4)
+with open(
+    "data/raw_jobs.json",
+    "w",
+    encoding="utf-8"
+) as f:
 
-print("Raw data saved to data/raw_jobs.json")
+    json.dump(
+        {"results": all_jobs},
+        f,
+        ensure_ascii=False,
+        indent=4
+    )
+
+print("Raw data saved")
