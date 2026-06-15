@@ -448,7 +448,7 @@ with tab_kafka:
                 Kafka Streaming Pipeline
             </h2>
             <p style="color:gray;margin-top:0;">
-                Real-time job offers received through Kafka Producer → Topic → Consumer → PostgreSQL
+                Near real-time job offers received through Kafka Producer → Topic → Consumer → PostgreSQL
             </p>
         </div>
         """,
