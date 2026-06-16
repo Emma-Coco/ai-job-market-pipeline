@@ -6,7 +6,7 @@ This project implements an end-to-end data engineering pipeline for analyzing th
 
 The solution combines:
 
-* Batch ETL processing
+* Batch ETL processing with Apache Spark
 * SQL analytics transformations (ELT)
 * Streaming data ingestion with Kafka
 * Workflow orchestration with Airflow
@@ -23,14 +23,14 @@ The project consists of two complementary pipelines.
 
 ## Batch Pipeline
 
-Adzuna API → Extract → Transform → Load → PostgreSQL → Analytics → Dashboard
+Adzuna API → Extract → Apache Spark Transform → Load → PostgreSQL → Analytics → Dashboard
 
 The batch pipeline is orchestrated by Apache Airflow and processes job offers periodically.
 
 ### Workflow
 
 1. Extract job offers from the Adzuna API
-2. Clean and normalize the data
+2. Clean and normalize the data using Apache Spark (PySpark)
 3. Load records into PostgreSQL
 4. Build analytics tables using SQL transformations
 5. Display insights in Streamlit
@@ -63,6 +63,7 @@ The streaming pipeline demonstrates near real-time ingestion using Apache Kafka.
 ## Data Engineering
 
 * Python
+* Apache Spark (PySpark)
 * PostgreSQL
 * Apache Kafka
 * Apache Airflow
@@ -141,17 +142,15 @@ The pipeline is automated using Apache Airflow.
 
 DAG:
 
-```
 extract_jobs
       ↓
-transform_jobs
+transform_jobs (Spark)
       ↓
 load_jobs
       ↓
 build_analytics_tables
       ↓
 quality_check
-```
 
 Features:
 
@@ -159,6 +158,23 @@ Features:
 * Task dependencies
 * Retry mechanism
 * Execution monitoring through Airflow UI
+
+---
+
+# Data Transformation with Apache Spark
+
+The transformation layer is implemented using Apache Spark (PySpark).
+
+Main operations:
+
+* Parsing nested JSON data from the Adzuna API
+* Flattening complex structures
+* Data cleaning and normalization
+* Null value filtering
+* Duplicate removal based on job identifiers
+* Exporting cleaned datasets for loading into PostgreSQL
+
+Although the project dataset remains moderate in size, Spark was integrated to demonstrate distributed data processing concepts commonly used in modern data engineering pipelines.
 
 ---
 
@@ -218,6 +234,13 @@ The Streamlit dashboard provides:
 docker start postgres_jobs kafka zookeeper
 ```
 
+## Configure Java for Spark
+
+```bash
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+export PATH="$JAVA_HOME/bin:$PATH"
+```
+
 ## Launch Airflow
 
 ```bash
@@ -239,6 +262,7 @@ streamlit run dashboard/app.py
 This project demonstrates:
 
 * ETL pipeline design
+* Apache Spark data transformations
 * ELT transformations
 * Data warehousing principles
 * Batch processing

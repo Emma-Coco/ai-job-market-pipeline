@@ -1,42 +1,121 @@
-import json
-import pandas as pd
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
 
-with open("data/raw_jobs.json", "r", encoding="utf-8") as f:
-    data = json.load(f)
+# =====================================================
+# SPARK SESSION
+# =====================================================
 
-jobs = []
-
-
-for job in data["results"]:
-
-    jobs.append(
-    {
-        "job_id": job.get("id"),
-        "title": job.get("title"),
-        "search_role": job.get("search_role"),
-        "company": job.get("company", {}).get("display_name"),
-        "location": job.get("location", {}).get("display_name"),
-
-        "country": (
-            job.get("location", {})
-               .get("area", ["Unknown"])[0]
-        ),
-
-        "salary_min": job.get("salary_min"),
-        "salary_max": job.get("salary_max"),
-
-        "contract_type": job.get("contract_type"),
-
-        "created_date": job.get("created"),
-
-        "description": job.get("description"),
-    }
+spark = (
+    SparkSession.builder
+    .appName("AIJobMarketTransform")
+    .master("local[*]")
+    .getOrCreate()
 )
 
-df = pd.DataFrame(jobs)
+# =====================================================
+# LOAD RAW JSON
+# =====================================================
 
-print(df.head())
+raw_df = (
+    spark.read
+    .option("multiline", "true")
+    .json("data/raw_jobs.json")
+)
 
-df.to_csv("data/jobs_clean.csv", index=False)
+# =====================================================
+# EXPLODE RESULTS ARRAY
+# =====================================================
 
-print("Clean data saved to data/jobs_clean.csv")
+jobs_df = raw_df.selectExpr("explode(results) as job")
+
+# =====================================================
+# FLATTEN JSON
+# =====================================================
+
+df = jobs_df.select(
+    col("job.id").alias("job_id"),
+    col("job.title").alias("title"),
+    col("job.search_role").alias("search_role"),
+    col("job.company.display_name").alias("company"),
+    col("job.location.display_name").alias("location"),
+    col("job.location.area")[0].alias("country"),
+    col("job.salary_min").alias("salary_min"),
+    col("job.salary_max").alias("salary_max"),
+    col("job.contract_type").alias("contract_type"),
+    col("job.created").alias("created_date")
+)
+
+# =====================================================
+# BASIC CLEANING
+# =====================================================
+
+df = df.filter(
+    col("job_id").isNotNull()
+)
+
+df = df.filter(
+    col("title").isNotNull()
+)
+
+df = df.filter(
+    col("company").isNotNull()
+)
+
+# =====================================================
+# REMOVE DUPLICATES
+# =====================================================
+
+df = df.dropDuplicates(
+    ["job_id"]
+)
+
+# =====================================================
+# PREVIEW
+# =====================================================
+
+print("\nPreview transformed dataset:\n")
+
+df.show(
+    5,
+    truncate=False
+)
+
+print(
+    f"\nRows after transformation: {df.count()}"
+)
+
+import shutil
+import glob
+
+# =====================================================
+# SAVE CSV
+# =====================================================
+
+output_dir = "data/jobs_clean_temp"
+
+(
+    df.coalesce(1)
+    .write
+    .mode("overwrite")
+    .option("header", True)
+    .csv(output_dir)
+)
+
+csv_file = glob.glob(
+    f"{output_dir}/part-*.csv"
+)[0]
+
+shutil.copy(
+    csv_file,
+    "data/jobs_clean.csv"
+)
+
+print(
+    "\nClean data saved to data/jobs_clean.csv"
+)
+
+# =====================================================
+# STOP SPARK
+# =====================================================
+
+spark.stop()

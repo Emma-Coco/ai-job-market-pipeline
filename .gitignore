@@ -22,4 +22,6 @@ simple_auth_manager_passwords.json.generated
 .vscode/
 
 # Mac
+.DS_Storedata/jobs_clean_temp/
+*.crc
 .DS_Store

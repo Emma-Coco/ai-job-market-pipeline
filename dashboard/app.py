@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 from sqlalchemy import create_engine
 
 # =====================================================
@@ -9,74 +10,179 @@ from sqlalchemy import create_engine
 
 st.set_page_config(
     page_title="AI/Data Job Market Analytics",
-    page_icon="📊",
+    page_icon="",
     layout="wide"
 )
 
 # =====================================================
-# COLORS
+# DESIGN TOKENS
 # =====================================================
 
-PRIMARY_COLOR = "#4F8EF7"
-SECONDARY_COLOR = "#6FA8FF"
-BACKGROUND_COLOR = "#F7FAFF"
+# Palette
+INK        = "#0D1117"   # near-black pour les titres
+SLATE      = "#3D4B60"   # corps de texte
+STEEL      = "#6B7B8D"   # labels, captions
+MIST       = "#EDF1F7"   # fonds de cartes
+BORDER     = "#D8E1EC"   # séparateurs
+AZURE      = "#2563EB"   # accent principal
+AZURE_SOFT = "#DBEAFE"   # accent doux
+SKY        = "#60A5FA"   # accent secondaire
+CLOUD      = "#93C5FD"   # accent tertiaire
 
 # =====================================================
 # CUSTOM CSS
 # =====================================================
 
-st.markdown("""
+st.markdown(f"""
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
-.main {
-    background-color: #F7FAFF;
-}
+html, body, [class*="css"] {{
+    font-family: 'Inter', sans-serif;
+}}
 
-.block-container {
-    padding-top: 1.5rem;
-    padding-bottom: 2rem;
-}
+.main {{
+    background-color: #F4F7FB;
+}}
 
-[data-testid="metric-container"] {
-    background-color: white;
-    border-top: 5px solid #4F8EF7;
-    padding: 18px;
-    border-radius: 16px;
-    box-shadow: 0px 2px 12px rgba(0,0,0,0.06);
-}
+.block-container {{
+    padding-top: 4.5rem;
+    padding-bottom: 3rem;
+    max-width: 1300px;
+}}
 
-/* Tabs */
-
-.stTabs [data-baseweb="tab-list"] {
-    gap: 12px;
-    margin-bottom: 25px;
-}
-
-.stTabs [data-baseweb="tab"] {
+/* ---- KPI CARDS ---- */
+[data-testid="metric-container"] {{
     background: white;
-    border-radius: 14px;
-    border: 1px solid #E6EEF9;
-    padding: 12px 24px;
+    border: 1px solid {BORDER};
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: none;
+    transition: box-shadow 0.15s ease;
+}}
+
+[data-testid="metric-container"]:hover {{
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+}}
+
+[data-testid="metric-container"] [data-testid="stMetricLabel"] {{
+    font-size: 11px;
     font-weight: 600;
-    color: #4F8EF7;
-    box-shadow: 0px 2px 8px rgba(0,0,0,0.04);
-}
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: {STEEL};
+}}
 
-.stTabs [data-baseweb="tab"]:hover {
-    background: #EEF5FF;
-}
+[data-testid="metric-container"] [data-testid="stMetricValue"] {{
+    font-size: 32px;
+    font-weight: 700;
+    color: {INK};
+    font-family: 'DM Mono', monospace;
+}}
 
-.stTabs [aria-selected="true"] {
-    background-color: #4F8EF7 !important;
-    color: white !important;
-}
+/* ---- TABS ---- */
+.stTabs [data-baseweb="tab-list"] {{
+    gap: 4px;
+    background: {MIST};
+    padding: 4px;
+    border-radius: 10px;
+    margin-bottom: 28px;
+    border-bottom: none;
+}}
 
-.stTabs [data-baseweb="tab-highlight"] {
+.stTabs [data-baseweb="tab"] {{
+    background: transparent;
+    border-radius: 7px;
+    border: none;
+    padding: 9px 20px;
+    font-weight: 500;
+    font-size: 14px;
+    color: {SLATE};
+    box-shadow: none;
+}}
+
+.stTabs [data-baseweb="tab"]:hover {{
+    background: white;
+    color: {INK};
+}}
+
+.stTabs [aria-selected="true"] {{
+    background: white !important;
+    color: {AZURE} !important;
+    font-weight: 600 !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+}}
+
+.stTabs [data-baseweb="tab-highlight"] {{
     display: none;
-}
+}}
 
+/* ---- CONTAINERS / CHARTS ---- */
+[data-testid="stVerticalBlockBorderWrapper"] {{
+    background: white;
+    border: 1px solid {BORDER} !important;
+    border-radius: 14px !important;
+    padding: 4px !important;
+    box-shadow: none;
+}}
+
+/* ---- DATAFRAME ---- */
+[data-testid="stDataFrame"] {{
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid {BORDER};
+}}
+
+/* ---- DIVIDER ---- */
+hr {{
+    border-color: {BORDER};
+    margin: 1.5rem 0;
+}}
+
+/* ---- CAPTION ---- */
+[data-testid="stCaptionContainer"] {{
+    color: {STEEL};
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+}}
 </style>
 """, unsafe_allow_html=True)
+
+# =====================================================
+# PLOTLY THEME HELPER
+# =====================================================
+
+CHART_LAYOUT = dict(
+    font_family="Inter",
+    font_color=SLATE,
+    title_font_family="Inter",
+    title_font_color=INK,
+    title_font_size=15,
+    paper_bgcolor="rgba(0,0,0,0)",
+    plot_bgcolor="rgba(0,0,0,0)",
+    margin=dict(t=44, l=0, r=0, b=0),
+    showlegend=True,
+    legend=dict(
+        bgcolor="rgba(0,0,0,0)",
+        borderwidth=0,
+        font_size=12,
+    ),
+)
+
+AXIS_STYLE = dict(
+    showgrid=True,
+    gridcolor=MIST,
+    gridwidth=1,
+    zeroline=False,
+    tickfont=dict(size=12, family="DM Mono"),
+    tickcolor=BORDER,
+    linecolor=BORDER,
+)
+
+# Variante sans grille (axes Y des bar charts horizontaux)
+AXIS_STYLE_NO_GRID = {**AXIS_STYLE, "showgrid": False}
+
+PIE_COLORS = [AZURE, SKY, CLOUD, "#BFDBFE", "#EFF6FF"]
 
 # =====================================================
 # DATABASE CONNECTION
@@ -97,94 +203,48 @@ engine = create_engine(
 # LOAD TABLES
 # =====================================================
 
-raw_jobs_df = pd.read_sql(
-    """
-    SELECT *
-    FROM raw_jobs
-    """,
-    engine
-)
+raw_jobs_df = pd.read_sql("SELECT * FROM raw_jobs", engine)
 
 company_df = pd.read_sql(
-    """
-    SELECT *
-    FROM company_statistics
-    ORDER BY job_count DESC
-    LIMIT 10
-    """,
+    "SELECT * FROM company_statistics ORDER BY job_count DESC LIMIT 10",
     engine
 )
 
 skills_df = pd.read_sql(
-    """
-    SELECT *
-    FROM skills_frequency
-    WHERE occurrences > 0
-    ORDER BY occurrences DESC
-    """,
+    "SELECT * FROM skills_frequency WHERE occurrences > 0 ORDER BY occurrences DESC",
     engine
 )
 
 contract_df = pd.read_sql(
-    """
-    SELECT *
-    FROM contract_statistics
-    ORDER BY job_count DESC
-    """,
+    "SELECT * FROM contract_statistics ORDER BY job_count DESC",
     engine
 )
 
 seniority_df = pd.read_sql(
-    """
-    SELECT *
-    FROM seniority_statistics
-    ORDER BY job_count DESC
-    """,
+    "SELECT * FROM seniority_statistics ORDER BY job_count DESC",
     engine
 )
 
 location_df = pd.read_sql(
     """
-    SELECT *
-    FROM location_statistics
+    SELECT * FROM location_statistics
     WHERE location <> 'France'
-    ORDER BY job_count DESC
-    LIMIT 10
+    ORDER BY job_count DESC LIMIT 10
     """,
     engine
 )
 
 jobs_day_df = pd.read_sql(
-    """
-    SELECT *
-    FROM jobs_by_day
-    ORDER BY job_date
-    """,
+    "SELECT * FROM jobs_by_day ORDER BY job_date",
     engine
 )
 
-# =====================================================
-# KAFKA STREAMING TABLES
-# =====================================================
-
-live_jobs_count_df = pd.read_sql(
-    """
-    SELECT COUNT(*) AS total
-    FROM live_jobs
-    """,
-    engine
-)
+live_jobs_count_df = pd.read_sql("SELECT COUNT(*) AS total FROM live_jobs", engine)
 
 latest_live_jobs_df = pd.read_sql(
     """
-    SELECT
-        title,
-        company,
-        search_role,
-        received_at
-    FROM live_jobs
-    ORDER BY received_at DESC
-    LIMIT 10
+    SELECT title, company, search_role, received_at
+    FROM live_jobs ORDER BY received_at DESC LIMIT 10
     """,
     engine
 )
@@ -193,41 +253,45 @@ latest_live_jobs_df = pd.read_sql(
 # KPI CALCULATIONS
 # =====================================================
 
-total_jobs = len(raw_jobs_df)
-
+total_jobs      = len(raw_jobs_df)
 total_companies = raw_jobs_df["company"].nunique()
-
 total_locations = raw_jobs_df["location"].nunique()
-
-total_skills = len(
-    skills_df[skills_df["occurrences"] > 0]
-)
-
-live_jobs_count = int(
-    live_jobs_count_df["total"].iloc[0]
-)
+total_skills    = len(skills_df[skills_df["occurrences"] > 0])
+live_jobs_count = int(live_jobs_count_df["total"].iloc[0])
 
 # =====================================================
 # HEADER
 # =====================================================
 
-st.markdown("""
-<h1 style='text-align:center;
-           font-size:42px;
-           margin-bottom:0;'>
-AI/Data Job Market Analytics
-</h1>
-
-<p style='text-align:center;
-          color:gray;
-          font-size:18px;'>
-End-to-End ETL, ELT, PostgreSQL, Kafka & Streamlit Pipeline
-</p>
+st.markdown(f"""
+<div style="margin-bottom: 8px;">
+    <p style="
+        margin: 0 0 6px 0;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: {AZURE};
+        font-family: 'DM Mono', monospace;
+    ">ESILV MSc A4 — ETL & Pipeline Orchestration</p>
+    <h1 style="
+        margin: 0;
+        font-size: 36px;
+        font-weight: 700;
+        color: {INK};
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+    ">AI / Data Job Market</h1>
+    <p style="
+        margin: 6px 0 0 0;
+        font-size: 15px;
+        color: {STEEL};
+        font-weight: 400;
+    ">End-to-end pipeline — PostgreSQL, Kafka & Streamlit</p>
+</div>
 """, unsafe_allow_html=True)
 
-st.caption(
-    f"Last refresh: {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}"
-)
+st.caption(f"Last refresh: {pd.Timestamp.now().strftime('%Y-%m-%d  %H:%M:%S')}")
 
 st.divider()
 
@@ -235,239 +299,213 @@ st.divider()
 # TABS
 # =====================================================
 
-tab_batch, tab_kafka = st.tabs(
-    [
-        "Batch Analytics Pipeline",
-        "Kafka Streaming Pipeline"
-    ]
-)
+tab_batch, tab_kafka = st.tabs([
+    "Batch Analytics Pipeline",
+    "Kafka Streaming Pipeline"
+])
 
 # =====================================================
-# TAB 1 - BATCH PIPELINE
+# TAB 1 — BATCH PIPELINE
 # =====================================================
 
 with tab_batch:
 
-    # =====================================================
-    # KPI SECTION
-    # =====================================================
+    # ---- KPIs ----
 
     col1, col2, col3, col4 = st.columns(4)
 
-    col1.metric(
-        "Job Offers",
-        total_jobs
-    )
-
-    col2.metric(
-        "Companies",
-        total_companies
-    )
-
-    col3.metric(
-        "Locations",
-        total_locations
-    )
-
-    col4.metric(
-        "Skills Found",
-        total_skills
-    )
+    col1.metric("Job Offers",    total_jobs)
+    col2.metric("Companies",     total_companies)
+    col3.metric("Locations",     total_locations)
+    col4.metric("Skills Found",  total_skills)
 
     st.divider()
 
-    st.markdown("## Market Insights")
+    # ---- Section label ----
 
-    # =====================================================
-    # ROW 1
-    # =====================================================
+    st.markdown(f"""
+    <p style="
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: {STEEL};
+        margin-bottom: 16px;
+        font-family: 'DM Mono', monospace;
+    ">Market Insights</p>
+    """, unsafe_allow_html=True)
+
+    # ---- ROW 1 — Bar charts ----
 
     left, right = st.columns(2)
 
     with left:
-
         with st.container(border=True):
-
-            fig_companies = px.bar(
+            fig = px.bar(
                 company_df,
                 x="job_count",
                 y="company",
                 orientation="h",
                 title="Top Recruiting Companies",
-                color_discrete_sequence=[PRIMARY_COLOR]
+                color_discrete_sequence=[AZURE],
             )
-
-            fig_companies.update_layout(
-                yaxis={'categoryorder': 'total ascending'}
+            fig.update_layout(**CHART_LAYOUT)
+            fig.update_xaxes(**AXIS_STYLE, title=None)
+            fig.update_yaxes(
+                **AXIS_STYLE_NO_GRID,
+                title=None,
+                categoryorder="total ascending",
             )
-
-            st.plotly_chart(
-                fig_companies,
-                use_container_width=True
-            )
+            fig.update_traces(marker_cornerradius=4)
+            st.plotly_chart(fig, use_container_width=True)
 
     with right:
-
         with st.container(border=True):
-
-            fig_skills = px.bar(
+            fig = px.bar(
                 skills_df,
                 x="occurrences",
                 y="skill",
                 orientation="h",
                 title="Most Requested Skills",
-                color_discrete_sequence=[PRIMARY_COLOR]
+                color_discrete_sequence=[SKY],
             )
-
-            fig_skills.update_layout(
-                yaxis={'categoryorder': 'total ascending'}
+            fig.update_layout(**CHART_LAYOUT)
+            fig.update_xaxes(**AXIS_STYLE, title=None)
+            fig.update_yaxes(
+                **AXIS_STYLE_NO_GRID,
+                title=None,
+                categoryorder="total ascending",
             )
+            fig.update_traces(marker_cornerradius=4)
+            st.plotly_chart(fig, use_container_width=True)
 
-            st.plotly_chart(
-                fig_skills,
-                use_container_width=True
-            )
-
-    # =====================================================
-    # ROW 2
-    # =====================================================
+    # ---- ROW 2 — Pie charts ----
 
     left, right = st.columns(2)
 
     with left:
-
         with st.container(border=True):
-
-            fig_contract = px.pie(
+            fig = px.pie(
                 contract_df,
                 names="contract_type",
                 values="job_count",
                 title="Contract Types",
-                color_discrete_sequence=[
-                    PRIMARY_COLOR,
-                    "#8AB8FF",
-                    "#C7DDFF"
-                ]
+                color_discrete_sequence=PIE_COLORS,
             )
-
-            st.plotly_chart(
-                fig_contract,
-                use_container_width=True
+            fig.update_traces(
+                textposition="inside",
+                textinfo="percent+label",
+                textfont_size=12,
+                marker=dict(line=dict(color="white", width=2)),
+                hovertemplate="%{label}<br>%{value} offers<extra></extra>",
             )
+            fig.update_layout(**CHART_LAYOUT)
+            st.plotly_chart(fig, use_container_width=True)
 
     with right:
-
         with st.container(border=True):
-
-            fig_seniority = px.pie(
+            fig = px.pie(
                 seniority_df,
                 names="seniority",
                 values="job_count",
-                hole=0.45,
+                hole=0.5,
                 title="Seniority Distribution",
-                color_discrete_sequence=[
-                    PRIMARY_COLOR,
-                    "#8AB8FF",
-                    "#C7DDFF",
-                    "#E6F0FF"
-                ]
+                color_discrete_sequence=PIE_COLORS,
             )
-
-            st.plotly_chart(
-                fig_seniority,
-                use_container_width=True
+            fig.update_traces(
+                textposition="inside",
+                textinfo="percent+label",
+                textfont_size=12,
+                marker=dict(line=dict(color="white", width=2)),
+                hovertemplate="%{label}<br>%{value} offers<extra></extra>",
             )
+            fig.update_layout(**CHART_LAYOUT)
+            st.plotly_chart(fig, use_container_width=True)
 
-    # =====================================================
-    # ROW 3
-    # =====================================================
+    # ---- ROW 3 — Location + Time ----
 
     left, right = st.columns(2)
 
     with left:
-
         with st.container(border=True):
-
-            fig_location = px.bar(
+            fig = px.bar(
                 location_df,
                 x="job_count",
                 y="location",
                 orientation="h",
                 title="Top Locations",
-                color_discrete_sequence=[PRIMARY_COLOR]
+                color_discrete_sequence=[AZURE],
             )
-
-            fig_location.update_layout(
-                yaxis={'categoryorder': 'total ascending'}
+            fig.update_layout(**CHART_LAYOUT)
+            fig.update_xaxes(**AXIS_STYLE, title=None)
+            fig.update_yaxes(
+                **AXIS_STYLE_NO_GRID,
+                title=None,
+                categoryorder="total ascending",
             )
-
-            st.plotly_chart(
-                fig_location,
-                use_container_width=True
-            )
+            fig.update_traces(marker_cornerradius=4)
+            st.plotly_chart(fig, use_container_width=True)
 
     with right:
-
         with st.container(border=True):
-
-            fig_time = px.line(
+            fig = px.area(
                 jobs_day_df,
                 x="job_date",
                 y="job_count",
-                markers=True,
-                title="Job Publications Over Time"
+                title="Job Publications Over Time",
             )
-
-            fig_time.update_traces(
-                line_color=PRIMARY_COLOR
+            fig.update_traces(
+                line_color=AZURE,
+                fillcolor=AZURE_SOFT,
+                line_width=2,
+                marker=dict(size=5, color=AZURE),
             )
-
-            st.plotly_chart(
-                fig_time,
-                use_container_width=True
-            )
+            fig.update_layout(**CHART_LAYOUT)
+            fig.update_xaxes(**AXIS_STYLE, title=None)
+            fig.update_yaxes(**AXIS_STYLE, title=None)
+            st.plotly_chart(fig, use_container_width=True)
 
 # =====================================================
-# TAB 2 - KAFKA PIPELINE
+# TAB 2 — KAFKA PIPELINE
 # =====================================================
 
 with tab_kafka:
 
-    st.markdown(
-        """
-        <div style="
-            background-color:white;
-            padding:25px;
-            border-radius:18px;
-            border-left:6px solid #4F8EF7;
-            box-shadow:0px 2px 12px rgba(0,0,0,0.06);
-            margin-top:25px;
-            margin-bottom:25px;
-        ">
-            <h2 style="margin-bottom:5px;">
-                Kafka Streaming Pipeline
-            </h2>
-            <p style="color:gray;margin-top:0;">
-                Near real-time job offers received through Kafka Producer → Topic → Consumer → PostgreSQL
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    st.markdown(f"""
+    <div style="
+        background: white;
+        border: 1px solid {BORDER};
+        border-left: 4px solid {AZURE};
+        border-radius: 12px;
+        padding: 24px 28px;
+        margin: 16px 0 28px 0;
+    ">
+        <p style="
+            margin: 0 0 4px 0;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: {AZURE};
+            font-family: 'DM Mono', monospace;
+        ">Streaming</p>
+        <h2 style="margin: 0 0 6px 0; color: {INK}; font-size: 22px;">Kafka Pipeline</h2>
+        <p style="margin: 0; color: {STEEL}; font-size: 14px;">
+            Near real-time ingestion — Producer → Topic → Consumer → PostgreSQL
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
-    col_stream_1, col_stream_2 = st.columns([1, 3])
+    col1, col2 = st.columns([1, 3])
 
-    with col_stream_1:
-        st.metric(
-            "Live Jobs Streamed",
-            live_jobs_count
-        )
+    with col1:
+        st.metric("Live Jobs Streamed", live_jobs_count)
 
-    with col_stream_2:
+    with col2:
         st.dataframe(
             latest_live_jobs_df,
             use_container_width=True,
-            hide_index=True
+            hide_index=True,
         )
 
 # =====================================================
@@ -476,6 +514,4 @@ with tab_kafka:
 
 st.divider()
 
-st.caption(
-    "ESILV MSc A4 • ETL & Pipeline Orchestration Final Project • Emma Coco"
-)
+st.caption("Emma Coco — ESILV MSc A4 — ETL & Pipeline Orchestration Final Project")
