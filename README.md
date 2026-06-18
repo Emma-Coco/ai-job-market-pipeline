@@ -2,7 +2,7 @@
 
 ## GitHub Repository
 
-🚀 **Project Repository**
+**Project Repository**
 
 **https://github.com/Emma-Coco/ai-job-market-pipeline**
 
